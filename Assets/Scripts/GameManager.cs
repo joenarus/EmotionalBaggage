@@ -1,17 +1,28 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public int playerLives;
-    public float timer;
+    public float StartTime;
     public GameEvent playerDeath;
+    public Text lifeText;
+
+    public Image Life1;
+    public Image Life2;
+    public Image Life3;
+
+    public Sprite LostLife;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartTime = Time.time;
     }
 
     // Update is called once per frame
@@ -22,7 +33,9 @@ public class GameManager : MonoBehaviour
 
     public void takeDamage()
     {
+
         playerLives--;
+
         if(playerLives <= 0)
         {
             GameOver();
@@ -34,5 +47,4 @@ public class GameManager : MonoBehaviour
         playerDeath.Raise();
         Debug.Log("GAME OVER");
     }
-
 }
