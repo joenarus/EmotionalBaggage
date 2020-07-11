@@ -19,7 +19,7 @@ public class PlayerInfo : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Bullet")
+        if(collision.tag == "Bullet" || collision.tag == "Fear" || collision.tag == "Panic" || collision.tag == "Anger")
         {
             playerHit.Raise();
         }
