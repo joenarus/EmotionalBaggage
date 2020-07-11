@@ -25,9 +25,6 @@ public class NonFearMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var ldirection = rb.position - player.position;
-        ldirection.Normalize();
-
         rb.MovePosition(rb.position + moveSpeed * Time.fixedDeltaTime * direction);
 
         timeUntilChange -= Time.fixedDeltaTime;
@@ -38,7 +35,7 @@ public class NonFearMovement : MonoBehaviour
             direction.Normalize();
         }
 
-        Vector2 lookDir = rb.position - player.position;
+        Vector2 lookDir = player.position - rb.position;
         lookDir.Normalize();
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
