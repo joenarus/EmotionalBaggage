@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInfo : MonoBehaviour
 {
     public GameEvent playerHit;
+    public IntVariable playerLives;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class PlayerInfo : MonoBehaviour
     {
         if(collision.tag == "Bullet" || collision.tag == "Fear" || collision.tag == "Panic" || collision.tag == "Anger")
         {
+            playerLives.value--;
             playerHit.Raise();
         }
     }

@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class PlayerUIController : MonoBehaviour
 {
     public GameManager TheManager;
+    public IntVariable playerLives;
     public Text timerText;
     public Text lifeText;
-    int playerLives;
 
     public Image Life1;
     public Image Life2;
@@ -21,7 +21,7 @@ public class PlayerUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerLives = 3;
+
     }
 
     // Update is called once per frame
@@ -40,21 +40,21 @@ public class PlayerUIController : MonoBehaviour
     public void takeDamage()
     {
         //TODO RACE CONDITION
-        switch (TheManager.playerLives)
+        switch (playerLives.value)
         {
-            case 1:
+            case 0:
                 Life1.sprite = LostLife;
                 break;
-            case 2:
+            case 1:
                 Life2.sprite = LostLife;
                 break;
-            case 3:
+            case 2:
                 Life3.sprite = LostLife;
                 break;
             default:
                 break;
         }
 
-        lifeText.text = "Lives : " + (playerLives - 1);
+        lifeText.text = "Lives : " + (playerLives.value);
     }
 }

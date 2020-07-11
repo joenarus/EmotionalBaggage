@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public int playerLives;
+    public IntVariable playerLives;
     public float StartTime;
     public GameEvent playerDeath;
     public Text lifeText;
@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartTime = Time.time;
+        playerLives.value = playerLives.InitialValue;
     }
 
     // Update is called once per frame
@@ -33,10 +34,7 @@ public class GameManager : MonoBehaviour
 
     public void takeDamage()
     {
-
-        playerLives--;
-
-        if(playerLives <= 0)
+        if(playerLives.value <= 0)
         {
             GameOver();
         }
