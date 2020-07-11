@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHit: {fileID: 11400000, guid: 2fd765168db09ef4cac23e41e11fc82c, type: 2}
+  playerLives: {fileID: 11400000, guid: 39a7421ca25f31149ab9dcea93f6d25d, type: 2}
 --- !u!1 &5912118047475231130
 GameObject:
   m_ObjectHideFlags: 0
