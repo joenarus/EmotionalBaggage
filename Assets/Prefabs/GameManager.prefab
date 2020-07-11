@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 931995885947347247}
   - component: {fileID: 931995885947347246}
   - component: {fileID: 931995885947347244}
+  - component: {fileID: 719999877}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,13 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLives: {fileID: 11400000, guid: 39a7421ca25f31149ab9dcea93f6d25d, type: 2}
+  playerKills: {fileID: 11400000, guid: 6d91fc72be0eda74b8432a7b1848e44b, type: 2}
   StartTime: 0
   playerDeath: {fileID: 11400000, guid: 0a3df58395dce7b4b9192f9a4d974ae6, type: 2}
-  lifeText: {fileID: 0}
-  Life1: {fileID: 0}
-  Life2: {fileID: 0}
-  Life3: {fileID: 0}
-  LostLife: {fileID: 21300000, guid: ad7f57b3b0ce9034382e96467ecf85db, type: 3}
+  nextFearInterval: 1
+  nextAngerInterval: 5
+  nextPanicInterval: 10
 --- !u!114 &931995885947347244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +70,33 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 931995885947347246}
         m_MethodName: takeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &719999877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931995885947347241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cacd4a56662e01d4db38fa6dec39a897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 8be7a32b7f3ad8349a03aada18505b5b, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 931995885947347246}
+        m_MethodName: updateKills
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

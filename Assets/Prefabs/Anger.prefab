@@ -282,5 +282,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee171336a12b339418752d945ad20f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHit: {fileID: 0}
+  enemyHit: {fileID: 11400000, guid: 8be7a32b7f3ad8349a03aada18505b5b, type: 2}
   ExplosionDelay: 5

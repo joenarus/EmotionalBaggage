@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NonFearMovement : MonoBehaviour
+public class NonFearMovement : MonoBehaviour, IPooledObject
 {
     public float moveSpeed = 1f;
     private float timeUntilChange;
@@ -12,13 +12,20 @@ public class NonFearMovement : MonoBehaviour
     private Rigidbody2D player;
     private Vector2 direction;
     private Random rand = new Random();
-    
+
+    public void OnObjectSpawn()
+    {
+        player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+        direction = new Vector2(Random.Range(-180f, 180f), Random.Range(-180f, 180f));
+        direction.Normalize();
+        timeUntilChange = movementTime;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
-        direction = new Vector2(Random.Range(-180f,180f), Random.Range(-180f,180f));
+        direction = new Vector2(Random.Range(-180f, 180f), Random.Range(-180f, 180f));
         direction.Normalize();
         timeUntilChange = movementTime;
     }
