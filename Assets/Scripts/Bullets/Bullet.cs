@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour, IPooledObject
 {
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D rb;
 
     public void OnObjectSpawn()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
-        rigidbody.AddForce(new Vector2(9.8f * 25f, 9.8f * 25f));
+        rb = GetComponent<Rigidbody2D>();
+        rb.AddForce(new Vector2(9.8f * 25f, 9.8f * 25f));
     }
 
     // Update is called once per frame
