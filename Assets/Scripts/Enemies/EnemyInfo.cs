@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInfo : MonoBehaviour
+public class EnemyInfo : MonoBehaviour
 {
-    public GameEvent playerHit;
+    public GameEvent enemyHit;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +19,15 @@ public class PlayerInfo : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Bullet" || collision.tag == "Fear" || collision.tag == "Panic" || collision.tag == "Anger")
+        if(collision.tag == "Bullet")
         {
-            playerHit.Raise();
+            Die();
+            enemyHit.Raise();
         }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }
