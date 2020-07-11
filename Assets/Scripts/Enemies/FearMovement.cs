@@ -18,6 +18,9 @@ public class FearMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        direction = rb.position - player.position;
+        direction.Normalize();
+
         rb.MovePosition(rb.position - moveSpeed * Time.fixedDeltaTime * direction);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
@@ -26,7 +29,5 @@ public class FearMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        direction = rb.position - player.position;
-        direction.Normalize();
     }
 }
