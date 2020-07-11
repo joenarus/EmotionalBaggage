@@ -44,6 +44,11 @@ public class NonFearMovement : MonoBehaviour
         rb.rotation = angle;
     }
 
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        direction = Vector3.Reflect(direction.normalized, col.contacts[0].normal);
+    }
+
     // Update is called once per frame
     void Update()
     {
