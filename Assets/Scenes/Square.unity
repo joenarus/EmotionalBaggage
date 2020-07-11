@@ -1557,6 +1557,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876272130}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1953263185 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1631280147500696484, guid: f43a5e1a994074c47b4b09854b3f4c0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1631280147829190133}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1953263186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953263185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cacd4a56662e01d4db38fa6dec39a897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 2fd765168db09ef4cac23e41e11fc82c, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1953263187}
+        m_MethodName: ResetPool
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bullet
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1953263187 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1631280147500696486, guid: f43a5e1a994074c47b4b09854b3f4c0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1631280147829190133}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953263185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46bd56c8f63e93c48b353b80254c3418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &931995886786069330
 PrefabInstance:
   m_ObjectHideFlags: 0
