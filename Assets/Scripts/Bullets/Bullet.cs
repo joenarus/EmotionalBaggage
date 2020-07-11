@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IPooledObject
 {
     private Rigidbody2D rigidbody;
-    // Start is called before the first frame update
-    void Start()
+
+    public void OnObjectSpawn()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         rigidbody.AddForce(new Vector2(9.8f * 25f, 9.8f * 25f));
