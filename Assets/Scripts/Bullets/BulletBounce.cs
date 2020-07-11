@@ -23,11 +23,10 @@ public class BulletBounce : MonoBehaviour
         lastVelocity = ridgidbody.velocity;
     }
 
-    private void OnCollisionEnter2D(Collision2D col) {
-       
-            var speed = lastVelocity.magnitude;
-            var direction = Vector3.Reflect(lastVelocity.normalized, col.contacts[0].normal);
-            ridgidbody.velocity = direction * Mathf.Max(speed, 0f);
-        
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        var speed = lastVelocity.magnitude;
+        var direction = Vector3.Reflect(lastVelocity.normalized, col.contacts[0].normal);
+        ridgidbody.velocity = direction * Mathf.Max(speed, 0f);
     }
 }
