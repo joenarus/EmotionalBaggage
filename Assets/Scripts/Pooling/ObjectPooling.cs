@@ -35,6 +35,7 @@ public class ObjectPooling : MonoBehaviour
             for (int i = 0; i < pool.size; i++)
             {
                 GameObject obj = Instantiate(pool.prefab);
+                obj.transform.parent = transform.Find("Inactive/" + pool.tag);
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }
