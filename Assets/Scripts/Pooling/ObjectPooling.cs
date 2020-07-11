@@ -23,11 +23,13 @@ public class ObjectPooling : MonoBehaviour
 
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
+
+    private Dictionary<string, List<GameObject>> activatedObjects;
     // Start is called before the first frame update
     void Start()
     {
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
-
+        activatedObjects = new Dictionary<string, List<GameObject>>();
         foreach (Pool pool in pools)
         {
             Queue<GameObject> objectPool = new Queue<GameObject>();
@@ -61,7 +63,24 @@ public class ObjectPooling : MonoBehaviour
             pooledObj.OnObjectSpawn();
         }
         poolDictionary[tag].Enqueue(objectToSpawn);
+        if (!activatedObjects.ContainsKey(tag))
+        {
+            activatedObjects.Add(tag, new List<GameObject>());
+        }
+
+        activatedObjects[tag].Add(objectToSpawn);
 
         return objectToSpawn;
+    }
+
+    public void ResetPool(string tag)
+    {
+        foreach (GameObject activeObject in activatedObjects[tag])
+        {
+            activeObject.transform.parent = transform.Find("Inactive/" + tag);
+            activeObject.transform.rotation = transform.rotation;
+            activeObject.transform.position = transform.position;
+            activeObject.SetActive(false);
+        }
     }
 }
