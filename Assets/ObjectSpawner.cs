@@ -13,7 +13,7 @@ public class ObjectSpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        objectPooling.SpawnFromPool("Bullet", transform.position, Quaternion.identity);
+        //objectPooling.SpawnFromPool("Bullet", transform.position, Quaternion.identity);
     }
 
     // Update is called once per frame
