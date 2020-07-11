@@ -39,7 +39,6 @@ public class PlayerUIController : MonoBehaviour
 
     public void takeDamage()
     {
-        //TODO RACE CONDITION
         switch (playerLives.value)
         {
             case 0:

@@ -194,7 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6953839413678916983}
   - component: {fileID: 6953839413678916980}
-  - component: {fileID: 1182525701744109262}
+  - component: {fileID: 847556786}
   m_Layer: 0
   m_Name: MainSprite
   m_TagString: Untagged
@@ -266,7 +266,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1182525701744109262
+--- !u!95 &847556786
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -276,7 +276,7 @@ Animator:
   m_GameObject: {fileID: 6953839413678916982}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c937331fe478a7b4da1e6e3b609c70b5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 27244f029c55f4344b2b0e37a57075ea, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
