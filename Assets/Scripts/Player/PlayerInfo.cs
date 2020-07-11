@@ -22,6 +22,7 @@ public class PlayerInfo : MonoBehaviour
     {
         if(collision.tag == "Bullet" || collision.tag == "Fear" || collision.tag == "Panic" || collision.tag == "Anger")
         {
+            Debug.Log(collision.transform.name);
             playerLives.value--;
             playerHit.Raise();
         }

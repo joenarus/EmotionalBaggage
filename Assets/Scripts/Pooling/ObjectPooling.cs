@@ -75,12 +75,23 @@ public class ObjectPooling : MonoBehaviour
 
     public void ResetPool(string tag)
     {
-        foreach (GameObject activeObject in activatedObjects[tag])
+        if (activatedObjects.ContainsKey(tag))
         {
-            activeObject.transform.parent = transform.Find("Inactive/" + tag);
-            activeObject.transform.rotation = transform.rotation;
-            activeObject.transform.position = transform.position;
-            activeObject.SetActive(false);
+            foreach (GameObject activeObject in activatedObjects[tag])
+            {
+                activeObject.transform.parent = transform.Find("Inactive/" + tag);
+                activeObject.transform.rotation = transform.rotation;
+                activeObject.transform.position = transform.position;
+                activeObject.SetActive(false);
+            }
         }
+    }
+
+    public void ResetPoolObj(string tag, GameObject obj)
+    {
+        obj.transform.parent = transform.Find("Inactive/" + tag);
+        obj.transform.rotation = transform.rotation;
+        obj.transform.position = transform.position;
+        obj.SetActive(false);
     }
 }

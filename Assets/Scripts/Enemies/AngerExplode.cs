@@ -17,7 +17,7 @@ public class AngerExplode : MonoBehaviour
     }
     void Explode()
     {
-        Destroy(gameObject);
+        ObjectPooling.Instance.ResetPoolObj(transform.tag, gameObject);
         enemyHit.Raise();
     }
 

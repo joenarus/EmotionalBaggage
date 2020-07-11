@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FearMovement : MonoBehaviour
+public class FearMovement : MonoBehaviour, IPooledObject
 {
     public float moveSpeed = 1f;
 
@@ -29,5 +29,10 @@ public class FearMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public void OnObjectSpawn()
+    {
+        player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
     }
 }

@@ -8,29 +8,52 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public IntVariable playerLives;
+    public IntVariable playerKills;
     public float StartTime;
     public GameEvent playerDeath;
-    public Text lifeText;
 
-    public Image Life1;
-    public Image Life2;
-    public Image Life3;
+    private float nextFearUpdate;
+    private float nextAngerUpdate;
+    private float nextPanicUpdate;
 
-    public Sprite LostLife;
+    public float nextFearInterval = 1;
+    public float nextAngerInterval = 10;
+    public float nextPanicInterval = 20;
 
+    public 
 
     // Start is called before the first frame update
     void Start()
     {
         StartTime = Time.time;
         playerLives.value = playerLives.InitialValue;
+        playerKills.value = playerKills.InitialValue;
+        nextFearUpdate = Mathf.FloorToInt(Time.time) + nextFearInterval;
+        nextAngerUpdate = Mathf.FloorToInt(Time.time) + nextAngerInterval;
+        nextPanicUpdate = Mathf.FloorToInt(Time.time) + nextPanicInterval;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Time.time >= nextFearUpdate)
+        {
+            nextFearUpdate = Mathf.FloorToInt(Time.time) + nextFearInterval;
+            UpdateFear();
+        }
+        if (Time.time >= nextAngerUpdate)
+        {
+            nextAngerUpdate = Mathf.FloorToInt(Time.time) + nextAngerInterval;
+            UpdateAnger();
+        }
+        if (Time.time >= nextPanicUpdate)
+        {
+            nextPanicUpdate = Mathf.FloorToInt(Time.time) + nextPanicInterval;
+            UpdatePanic();
+        }
     }
+
+    
 
     public void takeDamage()
     {
@@ -44,5 +67,23 @@ public class GameManager : MonoBehaviour
     {
         playerDeath.Raise();
         Debug.Log("GAME OVER");
+    }
+
+    public void UpdateFear()
+    {
+        GameObject fear = ObjectPooling.Instance.SpawnFromPool("Fear", new Vector3(0,0,0),Quaternion.identity);
+        fear.transform.parent = GameObject.Find("ObjectPool/Active/Fear").transform;
+
+    }
+    public void UpdateAnger()
+    {
+        GameObject anger = ObjectPooling.Instance.SpawnFromPool("Anger", new Vector3(1, 0, 0), Quaternion.identity);
+        anger.transform.parent = GameObject.Find("ObjectPool/Active/Anger").transform;
+    }
+    public void UpdatePanic()
+    {
+        GameObject panic = ObjectPooling.Instance.SpawnFromPool("Panic", new Vector3(2, 0, 0), Quaternion.identity);
+        panic.transform.parent = GameObject.Find("ObjectPool/Active/Panic").transform;
+
     }
 }
