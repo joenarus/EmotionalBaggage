@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public int playerLives;
     public float StartTime;
     public GameEvent playerDeath;
-    public Text timerText;
     public Text lifeText;
 
     public Image Life1;
@@ -28,37 +27,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float curTime = Time.time - StartTime;
-
-        string completetionTime = string.Format("{0:0}:{1:00}.{2:00}",
-                     Mathf.Floor(curTime / 60),//minutes
-                     Mathf.Floor(curTime) % 60,//seconds
-                     Mathf.Floor((curTime * 100) % 100));//miliseconds
-
-        timerText.text = completetionTime;
+        
     }
 
     public void takeDamage()
     {
-        //TODO Not 100% certain this will work Check
-        switch (playerLives)
-        {
-            case 1:
-                Life1.sprite = LostLife;
-                break;
-            case 2:
-                Life2.sprite = LostLife;
-                break;
-            case 3:
-                Life3.sprite = LostLife;
-                break;
-            default:
-                break;
-        }
 
         playerLives--;
-
-        lifeText.text = "Lives : " + playerLives;
 
         if(playerLives <= 0)
         {
