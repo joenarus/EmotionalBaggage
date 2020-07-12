@@ -145,7 +145,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1631280147500696486}
         m_MethodName: ResetPool
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

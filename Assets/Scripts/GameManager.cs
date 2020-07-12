@@ -36,7 +36,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.ForceSoftware);
+        Vector2 hotSpot = new Vector2(cursor.width / 2f, cursor.height / 2f);
+        Cursor.SetCursor(cursor, hotSpot, CursorMode.ForceSoftware);
         if (PlayerPrefs.HasKey("HighScoreKills"))
         {
             oldHighScoreKills = PlayerPrefs.GetInt("HighScoreKills");

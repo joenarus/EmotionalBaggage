@@ -22,8 +22,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 lookDir = mousePos - transform.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        // shootPivotPoint.transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 100f * Time.fixedDeltaTime);
-        // //shootPoint.transform.RotateAround(transform.position, new Vector3(0, 0, 1), angle * Time.fixedDeltaTime);
         shootPivotPoint.transform.rotation = rotation;
     }
 
