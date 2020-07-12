@@ -1219,26 +1219,6 @@ PrefabInstance:
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 864404124}
-    - target: {fileID: 5912118046823149932, guid: 49b7383307a130940b0a5361bfe282b8,
-        type: 3}
-      propertyPath: shootPivotPoint
-      value: 
-      objectReference: {fileID: 5912118047007474452}
-    - target: {fileID: 5912118046823149934, guid: 49b7383307a130940b0a5361bfe282b8,
-        type: 3}
-      propertyPath: m_Mass
-      value: 0.0001
-      objectReference: {fileID: 0}
-    - target: {fileID: 5912118046823149934, guid: 49b7383307a130940b0a5361bfe282b8,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5912118046823149934, guid: 49b7383307a130940b0a5361bfe282b8,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 5912118046823149935, guid: 49b7383307a130940b0a5361bfe282b8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1296,9 +1276,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49b7383307a130940b0a5361bfe282b8, type: 3}
---- !u!1 &5912118047007474452 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8532617953142096558, guid: 49b7383307a130940b0a5361bfe282b8,
-    type: 3}
-  m_PrefabInstance: {fileID: 5912118047007474451}
-  m_PrefabAsset: {fileID: 0}
