@@ -8,6 +8,7 @@ public class PlayerUIController : MonoBehaviour
 {
     public GameManager TheManager;
     public IntVariable playerLives;
+    public FloatVariable playerTime;
     public Text timerText;
     public Text lifeText;
 
@@ -27,12 +28,10 @@ public class PlayerUIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float curTime = Time.time - TheManager.StartTime;
-
         string completetionTime = string.Format("{0:0}:{1:00}.{2:00}",
-                     Mathf.Floor(curTime / 60),//minutes
-                     Mathf.Floor(curTime) % 60,//seconds
-                     Mathf.Floor((curTime * 100) % 100));//miliseconds
+                     Mathf.Floor(playerTime.value / 60),//minutes
+                     Mathf.Floor(playerTime.value) % 60,//seconds
+                     Mathf.Floor((playerTime.value * 100) % 100));//miliseconds
 
         timerText.text = completetionTime;
     }

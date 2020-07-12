@@ -435,6 +435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TheManager: {fileID: 0}
   playerLives: {fileID: 11400000, guid: 39a7421ca25f31149ab9dcea93f6d25d, type: 2}
+  playerTime: {fileID: 11400000, guid: 652bb2ecad7087740abca08af60c5e52, type: 2}
   timerText: {fileID: 3878388580289084148}
   lifeText: {fileID: 3878388579988829250}
   Life1: {fileID: 3878388578962394291}

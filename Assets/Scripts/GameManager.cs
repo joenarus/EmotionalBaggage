@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public IntVariable playerLives;
     public IntVariable playerKills;
+    public FloatVariable playerTime;
     public float StartTime;
     public GameEvent playerDeath;
 
@@ -20,11 +21,33 @@ public class GameManager : MonoBehaviour
     public float nextAngerInterval = 10;
     public float nextPanicInterval = 20;
 
-    public 
+    public bool timerActive;
+    public int finalKills;
+
+    public int oldHighScoreKills;
+    public float oldHighScoreTime;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (PlayerPrefs.HasKey("HighScoreKills"))
+        {
+            oldHighScoreKills = PlayerPrefs.GetInt("HighScoreKills");
+            oldHighScoreTime = PlayerPrefs.GetFloat("HighScoreTime");
+        } else
+        {
+            oldHighScoreKills = 0;
+            oldHighScoreTime = 0f;
+        }
+        finalKills = 0;
+        playerTime.value = 0;
+        timerActive = false;
+        GameStart();
+    }
+
+    void GameStart()
+    {
+        timerActive = true;
         StartTime = Time.time;
         playerLives.value = playerLives.InitialValue;
         playerKills.value = playerKills.InitialValue;
@@ -36,6 +59,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(timerActive)
+        {
+            playerTime.value = Time.time - StartTime;
+        }
+        
         if (Time.time >= nextFearUpdate)
         {
             nextFearUpdate = Mathf.FloorToInt(Time.time) + nextFearInterval;
@@ -65,7 +93,19 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        finalKills = playerKills.value;
+        timerActive = false;
+
+        if (finalKills > oldHighScoreKills)
+        {
+            PlayerPrefs.SetInt("HighScoreKills", finalKills);
+        }
+        if(playerTime.value > oldHighScoreTime)
+        {
+            PlayerPrefs.SetFloat("HighScoreTime", playerTime.value);
+        }
         playerDeath.Raise();
+        
         Debug.Log("GAME OVER");
     }
 
