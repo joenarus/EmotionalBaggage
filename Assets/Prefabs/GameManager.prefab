@@ -58,6 +58,7 @@ MonoBehaviour:
   finalKills: 0
   oldHighScoreKills: 0
   oldHighScoreTime: 0
+  cursor: {fileID: 2800000, guid: 32a7a8ec94da4414980f75ad25dcb07c, type: 3}
 --- !u!114 &931995885947347244
 MonoBehaviour:
   m_ObjectHideFlags: 0
