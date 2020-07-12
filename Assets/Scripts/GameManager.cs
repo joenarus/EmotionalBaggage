@@ -42,15 +42,14 @@ public class GameManager : MonoBehaviour
         finalKills = 0;
         playerTime.value = 0;
         timerActive = false;
-        GameStart();
+        playerLives.value = playerLives.InitialValue;
+        playerKills.value = playerKills.InitialValue;
     }
 
-    void GameStart()
+    public void GameStart()
     {
         timerActive = true;
         StartTime = Time.time;
-        playerLives.value = playerLives.InitialValue;
-        playerKills.value = playerKills.InitialValue;
         nextFearUpdate = Mathf.FloorToInt(Time.time) + nextFearInterval;
         nextAngerUpdate = Mathf.FloorToInt(Time.time) + nextAngerInterval;
         nextPanicUpdate = Mathf.FloorToInt(Time.time) + nextPanicInterval;
@@ -59,25 +58,26 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timerActive)
+        if (timerActive)
         {
             playerTime.value = Time.time - StartTime;
-        }
-        
-        if (Time.time >= nextFearUpdate)
-        {
-            nextFearUpdate = Mathf.FloorToInt(Time.time) + nextFearInterval;
-            UpdateFear();
-        }
-        if (Time.time >= nextAngerUpdate)
-        {
-            nextAngerUpdate = Mathf.FloorToInt(Time.time) + nextAngerInterval;
-            UpdateAnger();
-        }
-        if (Time.time >= nextPanicUpdate)
-        {
-            nextPanicUpdate = Mathf.FloorToInt(Time.time) + nextPanicInterval;
-            UpdatePanic();
+
+
+            if (Time.time >= nextFearUpdate)
+            {
+                nextFearUpdate = Mathf.FloorToInt(Time.time) + nextFearInterval;
+                UpdateFear();
+            }
+            if (Time.time >= nextAngerUpdate)
+            {
+                nextAngerUpdate = Mathf.FloorToInt(Time.time) + nextAngerInterval;
+                UpdateAnger();
+            }
+            if (Time.time >= nextPanicUpdate)
+            {
+                nextPanicUpdate = Mathf.FloorToInt(Time.time) + nextPanicInterval;
+                UpdatePanic();
+            }
         }
     }
 
