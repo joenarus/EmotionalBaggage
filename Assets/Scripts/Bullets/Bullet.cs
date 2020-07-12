@@ -13,6 +13,11 @@ public class Bullet : MonoBehaviour, IPooledObject
         rb.AddForce(new Vector2(speed, speed));
     }
 
+    public void OnObjectDespawn()
+    {
+        gameObject.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update()
     {
