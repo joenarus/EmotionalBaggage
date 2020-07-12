@@ -18,6 +18,8 @@ public class PlayerUIController : MonoBehaviour
 
     public Sprite LostLife;
 
+    public GameObject damageScreen;
+
 
     // Start is called before the first frame update
     void Start()
@@ -54,5 +56,14 @@ public class PlayerUIController : MonoBehaviour
         }
 
         lifeText.text = "Lives : " + (playerLives.value);
+
+        StartCoroutine(DisplayDamage(.2f));
+    }
+
+    IEnumerator DisplayDamage(float seconds)
+    {
+        damageScreen.SetActive(true);
+        yield return new WaitForSeconds(seconds);
+        damageScreen.SetActive(false);
     }
 }

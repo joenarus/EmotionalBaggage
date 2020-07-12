@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 931995885947347247}
   - component: {fileID: 931995885947347246}
   - component: {fileID: 931995885947347244}
+  - component: {fileID: 238675316}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -50,8 +51,13 @@ MonoBehaviour:
   StartTime: 0
   playerDeath: {fileID: 11400000, guid: 0a3df58395dce7b4b9192f9a4d974ae6, type: 2}
   nextFearInterval: 1
-  nextAngerInterval: 5
-  nextPanicInterval: 10
+  nextAngerInterval: 20
+  nextPanicInterval: 5
+  nextAnxietyInterval: 10
+  timerActive: 0
+  finalKills: 0
+  oldHighScoreKills: 0
+  oldHighScoreTime: 0
 --- !u!114 &931995885947347244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +76,33 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 931995885947347246}
         m_MethodName: takeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &238675316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931995885947347241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cacd4a56662e01d4db38fa6dec39a897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: af6a863ff244611418d9fe4acfb88ac7, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 931995885947347246}
+        m_MethodName: GameStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
