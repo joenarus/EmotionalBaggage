@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 1047226396}
   - component: {fileID: 1047226395}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Anxiety
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bb5b4159f96e2364cac9a016422b4cc0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 53ea7378253331443aa4f7447af01ec5, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -637,7 +637,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 9b0035fe00ebdec48ba6f2d70d22531c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -659,7 +659,7 @@ GameObject:
   - component: {fileID: 8725592064831360896}
   - component: {fileID: 1324046070304358606}
   m_Layer: 0
-  m_Name: PlayerText
+  m_Name: AnxietyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -724,7 +724,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '#me'
+  m_Text: Anxiety
 --- !u!1 &3878388578254930053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1603,7 +1603,7 @@ GameObject:
   - component: {fileID: 4190927221323341619}
   - component: {fileID: 6565456795387422869}
   m_Layer: 0
-  m_Name: Panel
+  m_Name: TutorialPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
