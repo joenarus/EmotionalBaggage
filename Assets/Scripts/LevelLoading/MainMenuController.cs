@@ -35,7 +35,14 @@ public class MainMenuController : MonoBehaviour
 
     void LoadScores()
     {
-        bestKills = 10;
-        bestTime = 14f;
+        if (PlayerPrefs.HasKey("HighScoreKills"))
+        {
+            bestKills = PlayerPrefs.GetInt("HighScoreKills");
+            bestTime = PlayerPrefs.GetFloat("HighScoreTime");
+        } else
+        {
+            bestKills = 0;
+            bestTime = 0f;
+        }
     }
 }

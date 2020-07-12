@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLives: {fileID: 11400000, guid: 39a7421ca25f31149ab9dcea93f6d25d, type: 2}
   playerKills: {fileID: 11400000, guid: 6d91fc72be0eda74b8432a7b1848e44b, type: 2}
+  playerTime: {fileID: 11400000, guid: 652bb2ecad7087740abca08af60c5e52, type: 2}
   StartTime: 0
   playerDeath: {fileID: 11400000, guid: 0a3df58395dce7b4b9192f9a4d974ae6, type: 2}
   nextFearInterval: 1
