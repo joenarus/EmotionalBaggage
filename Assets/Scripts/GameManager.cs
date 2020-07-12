@@ -18,10 +18,12 @@ public class GameManager : MonoBehaviour
     private float nextFearUpdate;
     private float nextAngerUpdate;
     private float nextPanicUpdate;
+    private float nextAnxietyUpdate;
 
     public float nextFearInterval = 1;
     public float nextAngerInterval = 10;
     public float nextPanicInterval = 20;
+    public float nextAnxietyInterval = 20;
 
     public bool timerActive;
     public int finalKills;
@@ -36,7 +38,8 @@ public class GameManager : MonoBehaviour
         {
             oldHighScoreKills = PlayerPrefs.GetInt("HighScoreKills");
             oldHighScoreTime = PlayerPrefs.GetFloat("HighScoreTime");
-        } else
+        }
+        else
         {
             oldHighScoreKills = 0;
             oldHighScoreTime = 0f;
@@ -56,6 +59,7 @@ public class GameManager : MonoBehaviour
         nextFearUpdate = Mathf.FloorToInt(Time.time) + nextFearInterval;
         nextAngerUpdate = Mathf.FloorToInt(Time.time) + nextAngerInterval;
         nextPanicUpdate = Mathf.FloorToInt(Time.time) + nextPanicInterval;
+        nextAnxietyUpdate = Mathf.FloorToInt(Time.time) + nextAnxietyInterval;
     }
 
     // Update is called once per frame
@@ -64,30 +68,36 @@ public class GameManager : MonoBehaviour
         if (timerActive)
         {
             playerTime.value = Time.time - StartTime;
-        }
-        
-        if (Time.time >= nextFearUpdate)
-        {
-            nextFearUpdate = Mathf.FloorToInt(Time.time) + nextFearInterval;
-            UpdateFear(DetermineSpawn());
-        }
-        if (Time.time >= nextAngerUpdate)
-        {
-            nextAngerUpdate = Mathf.FloorToInt(Time.time) + nextAngerInterval;
-            UpdateAnger(DetermineSpawn());
-        }
-        if (Time.time >= nextPanicUpdate)
-        {
-            nextPanicUpdate = Mathf.FloorToInt(Time.time) + nextPanicInterval;
-            UpdatePanic(DetermineSpawn());
+
+
+            if (Time.time >= nextFearUpdate)
+            {
+                nextFearUpdate = Mathf.FloorToInt(Time.time) + nextFearInterval;
+                UpdateFear(DetermineSpawn());
+            }
+            if (Time.time >= nextAngerUpdate)
+            {
+                nextAngerUpdate = Mathf.FloorToInt(Time.time) + nextAngerInterval;
+                UpdateAnger(DetermineSpawn());
+            }
+            if (Time.time >= nextPanicUpdate)
+            {
+                nextPanicUpdate = Mathf.FloorToInt(Time.time) + nextPanicInterval;
+                UpdatePanic(DetermineSpawn());
+            }
+            if (Time.time >= nextAnxietyUpdate)
+            {
+                nextAnxietyUpdate = Mathf.FloorToInt(Time.time) + nextAnxietyInterval;
+                UpdateAnxiety(DetermineSpawn());
+            }
         }
     }
 
-    
+
 
     public void takeDamage()
     {
-        if(playerLives.value <= 0)
+        if (playerLives.value <= 0)
         {
             GameOver();
         }
@@ -102,12 +112,12 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("HighScoreKills", finalKills);
         }
-        if(playerTime.value > oldHighScoreTime)
+        if (playerTime.value > oldHighScoreTime)
         {
             PlayerPrefs.SetFloat("HighScoreTime", playerTime.value);
         }
         playerDeath.Raise();
-        
+
         Debug.Log("GAME OVER");
     }
 
@@ -126,7 +136,11 @@ public class GameManager : MonoBehaviour
     {
         GameObject panic = ObjectPooling.Instance.SpawnFromPool("Panic", pos, Quaternion.identity);
         panic.transform.parent = GameObject.Find("ObjectPool/Active/Panic").transform;
-
+    }
+    public void UpdateAnxiety(Vector3 pos)
+    {
+        GameObject anxiety = ObjectPooling.Instance.SpawnFromPool("Anxiety", pos, Quaternion.identity);
+        anxiety.transform.parent = GameObject.Find("ObjectPool/Active/Anxiety").transform;
     }
 
     private Vector3 DetermineSpawn()
@@ -135,7 +149,7 @@ public class GameManager : MonoBehaviour
         do
         {
             spawn = new Vector2(UnityEngine.Random.Range(-5f, 5f), UnityEngine.Random.Range(-5f, 5f));
-        } while(Vector2.Distance(spawn, player.position) < 2);
+        } while (Vector2.Distance(spawn, player.position) < 2);
 
         return spawn;
     }

@@ -114,15 +114,19 @@ MonoBehaviour:
   - tag: Panic
     prefab: {fileID: 6953839413473624005, guid: 76ef7b5a3c7dc134299659f246e633b6,
       type: 3}
-    size: 5
+    size: 50
   - tag: Anger
     prefab: {fileID: 8743854633112418007, guid: d2c1ded81edf6764b847fa3901f8ccc2,
       type: 3}
-    size: 5
+    size: 25
   - tag: Fear
     prefab: {fileID: 4556368948758333959, guid: b0fee3d66ac600348a759755a597e26d,
       type: 3}
-    size: 5
+    size: 50
+  - tag: Anxiety
+    prefab: {fileID: 6953839413473624005, guid: 9b557139e9ca5094a9aaa5856e417ff4,
+      type: 3}
+    size: 30
 --- !u!114 &1953263186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +185,7 @@ Transform:
   - {fileID: 2847624826001532560}
   - {fileID: 8125923472237162486}
   - {fileID: 7562217176267521347}
+  - {fileID: 1570203984051882514}
   m_Father: {fileID: 1631280147500696481}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -245,6 +250,7 @@ Transform:
   - {fileID: 6992300228990837309}
   - {fileID: 3659068683769422779}
   - {fileID: 304443381584013923}
+  - {fileID: 1075363194565983602}
   m_Father: {fileID: 1631280147500696481}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -337,6 +343,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1631280148427291186}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4758821313963359847
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1075363194565983602}
+  m_Layer: 0
+  m_Name: Anxiety
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1075363194565983602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4758821313963359847}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1631280148427291186}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6334641842346410861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1570203984051882514}
+  m_Layer: 0
+  m_Name: Anxiety
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1570203984051882514
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6334641842346410861}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1631280147673319526}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6509015220929527945
 GameObject:

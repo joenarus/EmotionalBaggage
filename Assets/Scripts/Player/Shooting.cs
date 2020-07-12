@@ -22,6 +22,6 @@ public class Shooting : MonoBehaviour
     {
         GameObject bullet = ObjectPooling.Instance.SpawnFromPool("Bullet", shootPoint.position, shootPoint.rotation);
         bullet.transform.parent = GameObject.Find("ObjectPool/Active/Bullet").transform;
-        bullet.GetComponent<Rigidbody2D>().AddForce(shootPoint.up * 20f, ForceMode2D.Impulse);
+        bullet.GetComponent<Rigidbody2D>().AddForce(shootPoint.up *  bullet.GetComponent<Bullet>().speed, ForceMode2D.Impulse);
     }
 }
