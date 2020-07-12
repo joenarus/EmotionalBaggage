@@ -35,6 +35,6 @@ public class AnxietyShoot : MonoBehaviour
         Vector3 trajectory = Vector3.RotateTowards(shootPoint.up, shootPoint.right, offset, 0);
 
         //update with bullet speed
-        bullet.GetComponent<Rigidbody2D>().AddForce(trajectory.normalized * 20f, ForceMode2D.Impulse);
+        bullet.GetComponent<Rigidbody2D>().AddForce(trajectory.normalized *  bullet.GetComponent<Bullet>().speed, ForceMode2D.Impulse);
     }
 }

@@ -73,9 +73,9 @@ public class ObjectPooling : MonoBehaviour
         return objectToSpawn;
     }
 
-    public void ResetPool(string tag)
+    public void ResetPool()
     {
-        if (activatedObjects.ContainsKey(tag))
+        foreach (string tag in activatedObjects.Keys)
         {
             foreach (GameObject activeObject in activatedObjects[tag])
             {
