@@ -31,6 +31,10 @@ public class MainMenuController : MonoBehaviour
             LoadManager.Instance
                 .LoadGame(SceneIndexes.SQUARE);
         }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     void LoadScores()
