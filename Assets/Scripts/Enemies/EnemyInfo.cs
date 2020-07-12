@@ -24,7 +24,7 @@ public class EnemyInfo : MonoBehaviour
 
     private void Die()
     {
-        ObjectPooling.Instance.ResetPoolObj(transform.tag, gameObject);
+        ObjectPooling.Instance.ResetPoolObj(gameObject);
     }
 
 }

@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 6953839413473624062}
   - component: {fileID: 2523354473721069597}
   - component: {fileID: 271335254}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Anxiety
   m_TagString: Fear
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

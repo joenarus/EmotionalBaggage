@@ -17,6 +17,7 @@ public class NonFearMovement : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
+        gameObject.GetComponentInChildren<Animator>().SetTrigger("Spawn");
         player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
         direction = new Vector2(Random.Range(-180f, 180f), Random.Range(-180f, 180f));
         direction.Normalize();
@@ -63,5 +64,29 @@ public class NonFearMovement : MonoBehaviour, IPooledObject
     void Update()
     {
 
+    }
+
+    public void OnObjectDespawn()
+    {
+        if (gameObject.active) {
+             StartCoroutine(Despawn());
+        }
+    }
+
+
+
+    IEnumerator Despawn()
+    {
+        gameObject.GetComponentInChildren<Animator>().SetTrigger("Die");
+        yield return new WaitForSeconds(.2f);
+        if (transform.tag == "Anger")
+        {
+            gameObject.GetComponent<AngerExplode>().exploded = false;
+        }
+        transform.parent = transform.Find("Inactive/" + tag);
+        transform.rotation = transform.rotation;
+        transform.position = transform.position;
+
+        gameObject.SetActive(false);
     }
 }

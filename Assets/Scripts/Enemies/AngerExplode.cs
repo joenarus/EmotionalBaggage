@@ -13,22 +13,26 @@ public class AngerExplode : MonoBehaviour
     public int selfDestuctShrapnel = 5;
     public int KilledShrapnel = 3;
 
+    public bool exploded;
     private void FixedUpdate()
     {
-        ExplosionDelay -= Time.fixedDeltaTime;
-        if (ExplosionDelay <= 0)
+        if (!exploded)
         {
-            Explode();
+            ExplosionDelay -= Time.fixedDeltaTime;
+            if (ExplosionDelay <= 0)
+            {
+                Explode();
+            }
         }
     }
     void Explode()
     {
-
+        exploded = true;
         Debug.Log("Kaboom");
 
         MakeShrapnel(selfDestuctShrapnel, explosionCenter);
 
-        ObjectPooling.Instance.ResetPoolObj(transform.tag, gameObject);
+        ObjectPooling.Instance.ResetPoolObj(gameObject);
         enemyHit.Raise();
     }
 
@@ -39,8 +43,8 @@ public class AngerExplode : MonoBehaviour
             GameObject bullet = ObjectPooling.Instance.SpawnFromPool("Bullet", explosionCenter.position, Quaternion.identity);
             bullet.transform.parent = GameObject.Find("ObjectPool/Active/Bullet").transform;
             bullet.GetComponent<Rigidbody2D>().AddForce(
-                new Vector3(UnityEngine.Random.Range(-100, 100), 
-                UnityEngine.Random.Range(-100, 100), 0).normalized * bullet.GetComponent<Bullet>().speed, 
+                new Vector3(UnityEngine.Random.Range(-100, 100),
+                UnityEngine.Random.Range(-100, 100), 0).normalized * bullet.GetComponent<Bullet>().speed,
                 ForceMode2D.Impulse);
         }
     }

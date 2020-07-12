@@ -14,6 +14,7 @@ public class FearMovement : MonoBehaviour, IPooledObject
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+
     }
 
     private void FixedUpdate()
@@ -31,6 +32,27 @@ public class FearMovement : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
+        gameObject.GetComponentInChildren<Animator>().SetTrigger("Spawn");
         player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+    }
+
+    public void OnObjectDespawn()
+    {
+        if (gameObject.active) {
+             StartCoroutine(Despawn());
+        }
+    }
+
+
+
+    IEnumerator Despawn()
+    {
+        gameObject.GetComponentInChildren<Animator>().SetTrigger("Die");
+        yield return new WaitForSeconds(.4f);
+        transform.parent = transform.Find("Inactive/" + tag);
+        transform.rotation = transform.rotation;
+        transform.position = transform.position;
+
+        gameObject.SetActive(false);
     }
 }
