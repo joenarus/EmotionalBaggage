@@ -13,6 +13,8 @@ public class NonFearMovement : MonoBehaviour, IPooledObject
     private Vector2 direction;
     private Random rand = new Random();
 
+    public GameObject shootPointPivot;
+
     public void OnObjectSpawn()
     {
         player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
@@ -38,14 +40,18 @@ public class NonFearMovement : MonoBehaviour, IPooledObject
         if (timeUntilChange <= 0)
         {
             timeUntilChange = movementTime;
-            direction = new Vector2(Random.Range(-180f,180f), Random.Range(-180f,180f));
+            direction = new Vector2(Random.Range(-180f, 180f), Random.Range(-180f, 180f));
             direction.Normalize();
         }
 
         Vector2 lookDir = player.position - rb.position;
         lookDir.Normalize();
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = angle;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        if (shootPointPivot != null)
+        {
+            shootPointPivot.transform.rotation = rotation;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -56,6 +62,6 @@ public class NonFearMovement : MonoBehaviour, IPooledObject
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
