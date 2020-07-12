@@ -153,7 +153,7 @@ public class GameManager : MonoBehaviour
         do
         {
             spawn = new Vector2(UnityEngine.Random.Range(-8.5f, 8.5f), UnityEngine.Random.Range(-8.5f, 8.5f));
-        } while (Vector2.Distance(spawn, player.position) < 2.5);
+        } while (Vector2.Distance(spawn, player.position) < 3.5);
 
         return spawn;
     }
