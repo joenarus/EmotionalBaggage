@@ -83,9 +83,10 @@ public class NonFearMovement : MonoBehaviour, IPooledObject
         {
             gameObject.GetComponent<AngerExplode>().exploded = false;
         }
-        transform.parent = transform.Find("Inactive/" + tag);
-        transform.rotation = transform.rotation;
-        transform.position = transform.position;
+        GameObject objectPool = GameObject.Find("ObjectPool");
+        transform.parent = objectPool.transform.Find("Inactive/" + tag);
+        transform.rotation = objectPool.transform.rotation;
+        transform.position = objectPool.transform.position;
 
         gameObject.SetActive(false);
     }
