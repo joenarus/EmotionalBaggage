@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4556368948758334011}
   - component: {fileID: 4556368948758333957}
   - component: {fileID: 4556368948758334008}
-  - component: {fileID: 4556368948758334009}
   - component: {fileID: 4556368948758333956}
+  - component: {fileID: -5672074297934811874}
   m_Layer: 11
   m_Name: Fear
   m_TagString: Fear
@@ -70,32 +70,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHit: {fileID: 11400000, guid: 8be7a32b7f3ad8349a03aada18505b5b, type: 2}
---- !u!61 &4556368948758334009
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4556368948758333959}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &4556368948758333956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +84,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   rb: {fileID: 4556368948758333957}
+--- !u!58 &-5672074297934811874
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4556368948758333959}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.51
 --- !u!1 &4556368948939991071
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,5 +287,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.1, y: 1.1}
   m_EdgeRadius: 0
