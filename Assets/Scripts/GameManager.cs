@@ -148,8 +148,8 @@ public class GameManager : MonoBehaviour
         Vector2 spawn;
         do
         {
-            spawn = new Vector2(UnityEngine.Random.Range(-5f, 5f), UnityEngine.Random.Range(-5f, 5f));
-        } while (Vector2.Distance(spawn, player.position) < 2);
+            spawn = new Vector2(UnityEngine.Random.Range(-8.5f, 8.5f), UnityEngine.Random.Range(-8.5f, 8.5f));
+        } while (Vector2.Distance(spawn, player.position) < 2.5);
 
         return spawn;
     }
