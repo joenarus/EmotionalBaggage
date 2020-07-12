@@ -11,16 +11,20 @@ public class PlayerMovement : MonoBehaviour
     public Camera mainCam;
 
     Vector2 movement;
-    Vector2 mousePos;
+    Vector3 mousePos;
 
+    public GameObject shootPivotPoint;
 
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
-        Vector2 lookDir = mousePos - rb.position;
+        Vector3 lookDir = mousePos - transform.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = angle;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        // shootPivotPoint.transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 100f * Time.fixedDeltaTime);
+        // //shootPoint.transform.RotateAround(transform.position, new Vector3(0, 0, 1), angle * Time.fixedDeltaTime);
+        shootPivotPoint.transform.rotation = rotation;
     }
 
     // Update is called once per frame
