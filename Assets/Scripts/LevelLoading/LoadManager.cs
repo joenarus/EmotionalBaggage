@@ -36,7 +36,7 @@ public class LoadManager : MonoBehaviour
     public void LoadGame(SceneIndexes scene)
     {
         loadingScreen.gameObject.SetActive(true);
-        scenesLoading.Add(SceneManager.UnloadSceneAsync((int)SceneIndexes.TITLE_SCREEN));
+        scenesLoading.Add(SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1)));
         scenesLoading.Add(SceneManager.LoadSceneAsync((int)scene, LoadSceneMode.Additive));
 
         StartCoroutine(GetSceneLoadProgress(3));
