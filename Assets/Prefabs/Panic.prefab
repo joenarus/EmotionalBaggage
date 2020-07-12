@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 551854727}
-  - component: {fileID: 551854728}
+  - component: {fileID: 6908234375501031482}
   m_Layer: 12
   m_Name: COLLIDER
   m_TagString: Untagged
@@ -31,8 +31,8 @@ Transform:
   m_Father: {fileID: 6953839413473624057}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &551854728
-BoxCollider2D:
+--- !u!58 &6908234375501031482
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -45,18 +45,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
 --- !u!1 &6953839413473624005
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,8 +59,8 @@ GameObject:
   - component: {fileID: 6953839413473624059}
   - component: {fileID: 6953839413473624058}
   - component: {fileID: 6953839413473624062}
-  - component: {fileID: 6953839413473624063}
   - component: {fileID: 6953839413473624060}
+  - component: {fileID: 1393662520032804239}
   m_Layer: 0
   m_Name: Panic
   m_TagString: Fear
@@ -144,32 +134,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHit: {fileID: 11400000, guid: 8be7a32b7f3ad8349a03aada18505b5b, type: 2}
---- !u!61 &6953839413473624063
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6953839413473624005}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &6953839413473624060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +148,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 6953839414648970092}
   shotDelay: 5
+--- !u!58 &1393662520032804239
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953839413473624005}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.555
 --- !u!1 &6953839413669063363
 GameObject:
   m_ObjectHideFlags: 0
