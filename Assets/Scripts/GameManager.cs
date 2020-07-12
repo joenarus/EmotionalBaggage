@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public float StartTime;
     public GameEvent playerDeath;
 
+    private Rigidbody2D player;
+
     private float nextFearUpdate;
     private float nextAngerUpdate;
     private float nextPanicUpdate;
@@ -47,6 +49,7 @@ public class GameManager : MonoBehaviour
 
     void GameStart()
     {
+        player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
         timerActive = true;
         StartTime = Time.time;
         playerLives.value = playerLives.InitialValue;
@@ -67,17 +70,17 @@ public class GameManager : MonoBehaviour
         if (Time.time >= nextFearUpdate)
         {
             nextFearUpdate = Mathf.FloorToInt(Time.time) + nextFearInterval;
-            UpdateFear();
+            UpdateFear(DetermineSpawn());
         }
         if (Time.time >= nextAngerUpdate)
         {
             nextAngerUpdate = Mathf.FloorToInt(Time.time) + nextAngerInterval;
-            UpdateAnger();
+            UpdateAnger(DetermineSpawn());
         }
         if (Time.time >= nextPanicUpdate)
         {
             nextPanicUpdate = Mathf.FloorToInt(Time.time) + nextPanicInterval;
-            UpdatePanic();
+            UpdatePanic(DetermineSpawn());
         }
     }
 
@@ -109,21 +112,32 @@ public class GameManager : MonoBehaviour
         Debug.Log("GAME OVER");
     }
 
-    public void UpdateFear()
+    public void UpdateFear(Vector3 pos)
     {
-        GameObject fear = ObjectPooling.Instance.SpawnFromPool("Fear", new Vector3(0,0,0),Quaternion.identity);
+        GameObject fear = ObjectPooling.Instance.SpawnFromPool("Fear", pos, Quaternion.identity);
         fear.transform.parent = GameObject.Find("ObjectPool/Active/Fear").transform;
 
     }
-    public void UpdateAnger()
+    public void UpdateAnger(Vector3 pos)
     {
-        GameObject anger = ObjectPooling.Instance.SpawnFromPool("Anger", new Vector3(1, 0, 0), Quaternion.identity);
+        GameObject anger = ObjectPooling.Instance.SpawnFromPool("Anger", pos, Quaternion.identity);
         anger.transform.parent = GameObject.Find("ObjectPool/Active/Anger").transform;
     }
-    public void UpdatePanic()
+    public void UpdatePanic(Vector3 pos)
     {
-        GameObject panic = ObjectPooling.Instance.SpawnFromPool("Panic", new Vector3(2, 0, 0), Quaternion.identity);
+        GameObject panic = ObjectPooling.Instance.SpawnFromPool("Panic", pos, Quaternion.identity);
         panic.transform.parent = GameObject.Find("ObjectPool/Active/Panic").transform;
 
+    }
+
+    private Vector3 DetermineSpawn()
+    {
+        Vector2 spawn;
+        do
+        {
+            spawn = new Vector2(UnityEngine.Random.Range(-5f, 5f), UnityEngine.Random.Range(-5f, 5f));
+        } while(Vector2.Distance(spawn, player.position) < 2);
+
+        return spawn;
     }
 }

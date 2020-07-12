@@ -1083,6 +1083,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObjectPool
       objectReference: {fileID: 0}
+    - target: {fileID: 6992300228990837309, guid: f43a5e1a994074c47b4b09854b3f4c0b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992300228990837309, guid: f43a5e1a994074c47b4b09854b3f4c0b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992300228990837309, guid: f43a5e1a994074c47b4b09854b3f4c0b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f43a5e1a994074c47b4b09854b3f4c0b, type: 3}
 --- !u!1001 &5912118047007474451
