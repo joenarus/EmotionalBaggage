@@ -15,6 +15,12 @@ public class GameOver : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Return))
         {
+            LoadManager.Instance
+                .LoadGame(SceneIndexes.SQUARE);
+            gameObject.SetActive(false);
+        }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
             LoadManager.Instance.LoadTitle();
             gameObject.SetActive(false);
         }
