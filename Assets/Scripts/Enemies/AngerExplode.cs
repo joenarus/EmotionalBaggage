@@ -38,7 +38,10 @@ public class AngerExplode : MonoBehaviour
         {
             GameObject bullet = ObjectPooling.Instance.SpawnFromPool("Bullet", explosionCenter.position, Quaternion.identity);
             bullet.transform.parent = GameObject.Find("ObjectPool/Active/Bullet").transform;
-            bullet.GetComponent<Rigidbody2D>().AddForce(new Vector3(UnityEngine.Random.Range(-100, 100), UnityEngine.Random.Range(-100, 100), 0).normalized * 20f, ForceMode2D.Impulse); //TODO change 20f to bullet speed
+            bullet.GetComponent<Rigidbody2D>().AddForce(
+                new Vector3(UnityEngine.Random.Range(-100, 100), 
+                UnityEngine.Random.Range(-100, 100), 0).normalized * bullet.GetComponent<Bullet>().speed, 
+                ForceMode2D.Impulse);
         }
     }
 

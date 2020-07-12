@@ -13,8 +13,9 @@ public class EnemyInfo : MonoBehaviour
         {
             if (transform.tag == "Anger")
             {
-                AngerExplode explode = new AngerExplode();
+                AngerExplode explode = gameObject.GetComponent<AngerExplode>();
                 explode.MakeShrapnel(explode.KilledShrapnel, transform);
+
             }
             Die();
             enemyHit.Raise();
